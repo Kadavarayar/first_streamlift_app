@@ -48,3 +48,10 @@ my_data_row = my_cur.fetchall()
 streamlit.header("My Fruit Load List Contains: ")
 streamlit.dataframe(my_data_row)
 
+my_fruit_list2 = pandas.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")
+my_fruit_list2 = my_fruit_list2.set_index('Fruit')
+streamlit.multiselect("What fruit would you like to add: ",list(my_fruit_list.index))
+fruits_to_show2 = my_fruit_list2.loc[fruits_selected]
+
+streamlit.write ('Thanks for adding ',fruits_to_show2)
+
